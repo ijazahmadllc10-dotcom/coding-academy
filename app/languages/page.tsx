@@ -1,15 +1,10 @@
 import Link from "next/link";
 import MatrixRain from "../MatrixRain";
-
-const languages = [
-  { name: "HTML", desc: "Build the structure of web pages.", color: "#ff7a3d" },
-  { name: "CSS", desc: "Style and design your websites.", color: "#3d9bff" },
-  { name: "JavaScript", desc: "Make websites interactive.", color: "#ffe03d" },
-  { name: "Python", desc: "Easy, powerful, and beginner friendly.", color: "#22ff55" },
-];
+import { lessons } from "../lessons";
 
 export default function Languages() {
   const green = "#22ff55";
+  const items = Object.entries(lessons);
 
   return (
     <main
@@ -51,29 +46,29 @@ export default function Languages() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
               gap: 24,
-              maxWidth: 1000,
+              maxWidth: 1200,
               margin: "50px auto 0",
             }}
           >
-            {languages.map((lang) => (
+            {items.map(([key, lang]) => (
               <div
-                key={lang.name}
+                key={key}
                 style={{
-                  background: "rgba(0,0,0,0.75)",
+                  background: "rgba(0,0,0,0.8)",
                   border: `2px solid ${lang.color}`,
                   borderRadius: 16,
-                  padding: 30,
+                  padding: 26,
                 }}
               >
-                <h3 style={{ fontSize: 28, color: lang.color, margin: 0 }}>{lang.name}</h3>
-                <p style={{ color: "#cbd5e1", marginTop: 14 }}>{lang.desc}</p>
+                <h3 style={{ fontSize: 26, color: lang.color, margin: 0 }}>{lang.name}</h3>
+                <p style={{ color: "#cbd5e1", marginTop: 12, minHeight: 48 }}>{lang.desc}</p>
                 <Link
-                  href={`/learn/${lang.name.toLowerCase()}`}
+                  href={`/learn/${key}`}
                   style={{
                     display: "inline-block",
-                    marginTop: 20,
+                    marginTop: 16,
                     padding: "10px 26px",
                     borderRadius: 999,
                     background: lang.color,
