@@ -1,3 +1,4 @@
+import Link from "next/link";
 import MatrixRain from "./MatrixRain";
 
 export default function Home() {
@@ -17,7 +18,6 @@ export default function Home() {
       <MatrixRain />
 
       <div style={{ position: "relative", zIndex: 50 }}>
-        {/* Top bar */}
         <nav
           style={{
             display: "flex",
@@ -32,13 +32,11 @@ export default function Home() {
             {siteName}
           </h1>
           <div style={{ display: "flex", gap: 28, fontSize: 18 }}>
-            <a href="#" style={{ color: "#fff", textDecoration: "none" }}>Home</a>
-            <a href="#" style={{ color: "#fff", textDecoration: "none" }}>Languages</a>
-            <a href="#" style={{ color: "#fff", textDecoration: "none" }}>Playground</a>
+            <Link href="/" style={{ color: green, textDecoration: "none" }}>Home</Link>
+            <Link href="/languages" style={{ color: "#fff", textDecoration: "none" }}>Languages</Link>
           </div>
         </nav>
 
-        {/* Hero section */}
         <section style={{ textAlign: "center", padding: "120px 40px" }}>
           <div
             style={{
@@ -55,21 +53,22 @@ export default function Home() {
             <p style={{ marginTop: 24, fontSize: 20, color: "#e2e8f0" }}>
               Learn Coding From Basic To Pro Level!
             </p>
-            <button
+            <Link
+              href="/languages"
               style={{
+                display: "inline-block",
                 marginTop: 36,
                 padding: "14px 40px",
                 borderRadius: 999,
-                border: "none",
                 background: green,
                 color: "#000",
                 fontSize: 18,
                 fontWeight: "bold",
-                cursor: "pointer",
+                textDecoration: "none",
               }}
             >
               Start
-            </button>
+            </Link>
           </div>
         </section>
       </div>
